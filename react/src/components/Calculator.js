@@ -85,9 +85,20 @@ const Calculator = () => {
             <Grid item xs={3} key={btn}>
               <Button
                 variant={btn === '=' ? 'contained' : 'outlined'}
-                color={['+', '-', '*', '/'].includes(btn) ? 'secondary' : 'primary'}
+                color="primary"
                 fullWidth
-                sx={{ height: 60, fontSize: 20, borderRadius: 1 }}
+                sx={{ 
+                  height: 60, 
+                  fontSize: 20, 
+                  borderRadius: 1,
+                  backgroundColor: btn === '=' ? '#1976d2' : 'transparent',
+                  color: btn === '=' ? '#fff' : '#1976d2',
+                  borderColor: '#1976d2',
+                  '&:hover': {
+                    backgroundColor: btn === '=' ? '#1565c0' : 'rgba(25, 118, 210, 0.04)',
+                    borderColor: '#1565c0',
+                  }
+                }}
                 onClick={() => {
                   if (btn === 'C') handleClearClick();
                   else if (btn === '=') handleEqualsClick();
